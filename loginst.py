@@ -2,15 +2,13 @@ import streamlit as st
 import sqlite3
 import base64
 import pandas as pd
-import streamlit as st
 import numpy as np
 from streamlit import caching
-from keras.models import model_from_json
+from tensorflow.keras.models import model_from_json
 import base64
-from keras import backend as K
+from tensorflow.keras import backend as K
 import matplotlib.pyplot as plt
 from scipy.ndimage.filters import uniform_filter1d, gaussian_filter
-import exo_frnt 
 conn = sqlite3.connect('data3.db')
 c= conn.cursor()
 
