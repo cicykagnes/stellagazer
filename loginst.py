@@ -78,9 +78,9 @@ def main():
     
     menu = ["Home","Visualize","Login","SignUp","About","users"]
     choice = st.sidebar.selectbox("Menu",menu)
-    if choice == "users":
-        c = view_all_users()
-        st.write(c)    
+    #if choice == "users":
+     #   c = view_all_users()
+      #  st.write(c)    
     if choice == "Home":
         main_bg = "11.gif"
         main_bg_ext = "gif"
@@ -487,9 +487,9 @@ def main():
                     </div> 
                     """
             st.markdown(html_temp, unsafe_allow_html=True)
-            if st.button('db'):
-                d=view_all_users()
-                st.write(d)
+           # if st.button('db'):
+            #    d=view_all_users()
+             #   st.write(d)
 
 if __name__=='__main__':
     
