@@ -224,15 +224,16 @@ def main():
                         rows1 = rows+1
                         st.write(rows)
                         plot = pd.DataFrame(x_test[rows:rows1].values).T
-
+                        st.text("Click here to view the flux curve")
                         c1, c2, c3 = st.beta_columns([1,1,1])
                         with c2:
                             view_flux = st.button('View the flux curve')
                                                
-                        if st.button(view_flux):
+                        if view_flux:
                             st.title('Light curve for star {}'.format(rows))
                             st.write(x_test[rows:rows1].T)
                             st.line_chart(plot)
+                        st.write("Click below to predict")
                         c1, c2, c3 = st.beta_columns([1,1,1])
                         with c2:
                             lstm_button = st.button('Predict using lstm')     
