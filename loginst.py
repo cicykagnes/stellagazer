@@ -149,7 +149,7 @@ def main():
                         font-weight:bold;
                         font-size:85px;
                         font-style:normal;
-                        font-family:"Times New Roman", Times, serif;">STELLA-GAZERS</h1>   </div>
+                        font-family:Courier New;">STELLA-GAZERS</h1>   </div>
             """
             
         st.markdown(html_temp, unsafe_allow_html=True)
