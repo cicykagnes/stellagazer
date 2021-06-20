@@ -524,7 +524,7 @@ def main():
             st.text(" ")
 
             st.markdown(
-                """Click here for the source code : **[Source code](https://github.com/cicykagnes/exoplanet/blob/main/exo_frnt.py)**""")
+                """Click here for the source code : **[Source code](https://github.com/cicykagnes)**""")
 
             html_temp = """ 
                     <div> 
