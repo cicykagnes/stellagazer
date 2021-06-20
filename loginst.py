@@ -76,7 +76,7 @@ def main():
                 initial_sidebar_state="collapsed",
                 page_icon="🔮")
     
-    menu = ["Home","Visualize","Login","SignUp","About"]
+    menu = ["Home","Visualize","Transit method","Login","SignUp","About","users"]
     choice = st.sidebar.selectbox("Menu",menu)
     if choice == "users":
         c = view_all_users()
