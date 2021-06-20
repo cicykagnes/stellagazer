@@ -415,7 +415,7 @@ def main():
                 elif s in all_letters:
                     total_letters += 1
             if new_password==' ' or len(new_password)<5 or total_digits<3 or total_letters<4:
-                st.warning("Please provide a valid password of length atleast 3 alphabets and 2 digits ")
+                st.warning("Please provide a valid password of length atleast 4 alphabets and 3 digits ")
             else:
                 insert(new_username,new_password)
                 
