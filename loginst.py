@@ -134,17 +134,26 @@ def main():
         </style>
         """,
             unsafe_allow_html=True)
+        st.text(" ")
+        st.text(" ")
+        st.text(" ")
+        st.text(" ")     
+        st.text(" ")
+        st.text(" ")
+        st.text(" ")
+        st.text(" ")
         html_temp = """ 
             <div> 
-            <h1 style ="color:yellow;
+            <h1 style ="color:#FF00FF;
                         text-align:center;
                         font-weight:bold;
-                        font-size:100px;
+                        font-size:85px;
                         font-style:normal;
-                        font-family:Courier New;">Exoplanet Detection</h1>   </div>
+                        font-family:"Times New Roman", Times, serif;">STELLA-GAZERS</h1>   </div>
             """
             
         st.markdown(html_temp, unsafe_allow_html=True)
+        
         html_temp = """ 
             <div> 
                 <h3 style ="border:5px #A9A9A9;
