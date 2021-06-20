@@ -78,9 +78,46 @@ def main():
     
     menu = ["Home","Visualize","Login","SignUp","About"]
     choice = st.sidebar.selectbox("Menu",menu)
-    #if choice == "users":
-     #   c = view_all_users()
-      #  st.write(c)    
+    if choice == "users":
+        c = view_all_users()
+        st.write(c)   
+    if choice=="Transit method":
+        main_bg = "012.jpg"
+        main_bg_ext = "jpg"
+
+        st.markdown(
+            f"""
+        <style>
+        .reportview-container {{
+            background: url(data:image/{main_bg_ext};base64,{base64.b64encode(open(main_bg, "rb").read()).decode()});
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }}
+
+        </style>
+        """,
+            unsafe_allow_html=True
+        )
+        html_temp = """ 
+            <div> 
+            <h1 style ="color:black;
+                        text-align:center;
+                        font-weight:bold;
+                        font-size:40px;
+                        font-style:normal;
+                        font-family:Courier New;">Transit Photometry</h1> 
+                         </div>
+            """
+            
+        st.markdown(html_temp, unsafe_allow_html=True)
+        image = "transit.gif"
+        st.image(image)
+        st.markdown("**There are a lot of planets outside our solar system.These planets are known as exoplanets or extrasolar planets. It is difficult to detect them because they are very near to their host stars compared to the observation distance. They only reflect a little light compared to their stars. When a planet crosses in front of it’s star there is a slight decrease in the light intensity curve of the star. Periodic decrease in the flux curve of the star shows the presence of planets as planets are bodies that revolve in an orbit around the stars.This method of detecting the exoplanets, by continually observing dips in it’s brightness is called transit photometry.**")
+        st.text(" ")
+        st.markdown("**Feed the light curve data from transit method into this application to predict the possibility of exoplanets together with artificial intelligence**")   
+    
     if choice == "Home":
         main_bg = "11.gif"
         main_bg_ext = "gif"
@@ -188,11 +225,19 @@ def main():
                         st.write(rows)
                         plot = pd.DataFrame(x_test[rows:rows1].values).T
 
-                        if st.button('View the flux'):
+                        c1, c2, c3 = st.beta_columns([1,1,1])
+                        with c2:
+                            view_flux = st.button('View the flux curve')
+                                               
+                        if st.button(view_flux):
                             st.title('Light curve for star {}'.format(rows))
                             st.write(x_test[rows:rows1].T)
                             st.line_chart(plot)
-                        if st.button('Predict using lstm'):
+                        c1, c2, c3 = st.beta_columns([1,1,1])
+                        with c2:
+                            lstm_button = st.button('Predict using lstm')     
+                            
+                        if lstm_button:
 
                             json_file = open('LSTM_model (2).json', 'r')
                             loaded_model_json = json_file.read()
@@ -228,14 +273,10 @@ def main():
                                 """
                                 st.markdown(html_temp, unsafe_allow_html=True)
                     with st.beta_expander("Model Details LSTM"):
-                        html_temp = """ 
-                            <div> 
-                            <h3 style ="color:black;text-align:center;"> 3 LAYERS OF LSTM </h3> 
-                            <h3 style ="color:black;text-align:center;"> Loss: Binary Crossentropy </h3>
-                            <h3 style ="color:black;text-align:center;"> .  </h3>
-                            </div> 
-                            """
-                        st.markdown(html_temp, unsafe_allow_html=True)
+                        c1, c2, c3 = st.beta_columns([1,1,1])
+                        with c2:
+                            img= "lstm_plot_main.png"
+                            st.image(img)
 
                 if page =='Predict using CNN':
                     html_temp = """ 
@@ -281,8 +322,11 @@ def main():
                         loaded_model_cnn.load_weights("model_cnn.h5")
                         loaded_model_cnn.summary()
 
-
-                        if st.button('Predict using cnn'):
+                        c1, c2, c3 = st.beta_columns([1,1,1])
+                        with c2:
+                            cnn_button = st.button('Predict using cnn')
+                        if cnn_button:
+                       
                             y_predict = loaded_model_cnn.predict(x_test)[rows:rows1]
 
                             html_temp = """ 
@@ -310,14 +354,11 @@ def main():
                     if data1 is None:
                         st.write("Please upload a csv file")
                     with st.beta_expander("Model Details of CNN"):
-                        html_temp = """ 
-                            <div> 
-                            <h3 style ="color:black;text-align:center;"> . </h3> 
-                            <h3 style ="color:black;text-align:center;"> . </h3>
-                            <h3 style ="color:black;text-align:center;"> .  </h3>
-                            </div> 
-                            """
-                        st.markdown(html_temp, unsafe_allow_html=True)
+                        c1, c2, c3 = st.beta_columns([1,1,1])
+                        with c2:
+                            img1 = "cnn_model.png"
+                            
+                            st.image(img1)    
                 
             else:
                 st.warning("Incorrect Username/password")
@@ -487,10 +528,7 @@ def main():
                     </div> 
                     """
             st.markdown(html_temp, unsafe_allow_html=True)
-           # if st.button('db'):
-            #    d=view_all_users()
-             #   st.write(d)
-
+          
 if __name__=='__main__':
     
     main()
