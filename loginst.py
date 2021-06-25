@@ -229,7 +229,7 @@ def main():
                     if data is not None:
                         test = pd.read_csv(data)
                         x_test = test.drop('LABEL', axis=1)
-                        rows = st.slider("Select the input row", 1, 570, 1)
+                        rows = st.slider("Select the input row", 0, 569, 0)
                         rows1 = rows+1
                         st.write(rows)
                         plot = pd.DataFrame(x_test[rows:rows1].values).T
@@ -306,7 +306,7 @@ def main():
 
                     if data1 is not None:
                         test = pd.read_csv(data1)
-                        rows = st.slider("Select the input row", 1, 570, 1)
+                        rows = st.slider("Select the input row", 0, 569, 0)
                         rows1 = rows+1
                         st.write(rows)
                         
@@ -457,7 +457,7 @@ def main():
         if data is not None:
             test = pd.read_csv(data)
             x_test = test.drop('LABEL', axis=1)
-            rows = st.slider("Select the input row", 1, 570, 1)
+            rows = st.slider("Select the input row", 0, 569, 0)
             rows1 = rows+1
             st.write(rows)
             plot = pd.DataFrame(x_test[rows:rows1].values).T
