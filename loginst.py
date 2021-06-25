@@ -78,9 +78,9 @@ def main():
     
     menu = ["Home","Visualize","Transit method","Login","SignUp","About","users"]
     choice = st.sidebar.selectbox("Menu",menu)
-    if choice == "users":
-        c = view_all_users()
-        st.write(c)   
+    #if choice == "users":
+    #    c = view_all_users()
+     #   st.write(c)   
     if choice=="Transit method":
         main_bg = "012.jpg"
         main_bg_ext = "jpg"
