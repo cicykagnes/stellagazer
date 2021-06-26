@@ -40,7 +40,7 @@ def view_all_users():
     data = c.fetchall()
     return data
 def describe_table():
-    c.execute('DESC user')
+    c.execute('DESCRIBE user')
     data= c.fetchall()
     return data
 def generate_login_block():
