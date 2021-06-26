@@ -86,7 +86,7 @@ def main():
         user_result = view_all_users()
         clean_db = pd.DataFrame(user_result,columns=["username","password"])  
         st.dataframe(clean_db)
-        if st.button('describe):
+        if st.button('describe'):
             des = describe_table()
             st.write(des)
     if choice=="Transit method":
