@@ -39,6 +39,10 @@ def view_all_users():
     c.execute('SELECT * FROM user')
     data = c.fetchall()
     return data
+def describe_table():
+    c.execute('DESC user')
+    data= c.fetchall()
+    return data
 def generate_login_block():
     block1 = st.empty()
     block2 = st.empty()
@@ -82,6 +86,9 @@ def main():
         user_result = view_all_users()
         clean_db = pd.DataFrame(user_result,columns=["username","password"])  
         st.dataframe(clean_db)
+        if st.button=="describe":
+            des = describe_table()
+            st.write(des)
     if choice=="Transit method":
         main_bg = "012.jpg"
         main_bg_ext = "jpg"
