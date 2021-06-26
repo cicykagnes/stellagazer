@@ -16,8 +16,6 @@ def create_table():
     
     c.execute('CREATE TABLE IF NOT EXISTS user(username TEXT UNIQUE,password TEXT NOT NULL)')
     
-
-
 def login_user(username,password):
     c.execute('SELECT * FROM user WHERE username =? AND password = ?',(username,password))
     data = c.fetchall()
@@ -80,15 +78,15 @@ def main():
                 initial_sidebar_state="collapsed",
                 page_icon="🔮")
     
-    menu = ["Home","Visualize","Transit method","Login","SignUp","About","users"]
+    menu = ["Home","Visualize","Transit method","Login","SignUp","About"]
     choice = st.sidebar.selectbox("Menu",menu)
-    if choice == "users":
-        user_result = view_all_users()
-        clean_db = pd.DataFrame(user_result,columns=["username","password"])  
-        st.dataframe(clean_db)
-        if st.button('describe'):
-            des = describe_table()
-            st.write(des)
+    #if choice == "users":
+     #   user_result = view_all_users()
+      #  clean_db = pd.DataFrame(user_result,columns=["username","password"])  
+       # st.dataframe(clean_db)
+        #if st.button('describe'):
+         #   des = describe_table()
+          #  st.write(des)
     if choice=="Transit method":
         main_bg = "012.jpg"
         main_bg_ext = "jpg"
