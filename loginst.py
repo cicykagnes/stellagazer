@@ -80,7 +80,8 @@ def main():
     choice = st.sidebar.selectbox("Menu",menu)
     if choice == "users":
         user_result = view_all_users()
-        clean_db = pd.DataFrame(user_result,columns=["username","password"])   
+        clean_db = pd.DataFrame(user_result,columns=["username","password"])  
+        st.dataframe(clean_db)
     if choice=="Transit method":
         main_bg = "012.jpg"
         main_bg_ext = "jpg"
